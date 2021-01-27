@@ -13,8 +13,21 @@ The two algorithms we implemented hinge on matrix factorization. Given a sparse 
 Even though the goal is the same, the proposed algorithms work in divergent ways: the first is a simple line-search whereas the second builds upon a gradient descent optimization.
 
 Sources:
-- UV Matrix Factorization: Chapter 9, MMDS book, http://www.mmds.org/
+- UV Matrix Decomposition: Chapter 9, MMDS book, http://www.mmds.org/
 - Gradient Descent Factorization: https://www.cs.uic.edu/~liub/KDD-cup-2007/proceedings/gravity-Tikk.pdf
+
+### The UV Matrix Decomposition
+To implement the UV decomposition algorithm, we initialize random U and M matrices in such a way that the starting point of the product between U
+and M is already satisfactory but still conserves some degree of stochasticity. To this end, we design the matrices U and M such that that their product yields an u x m matrix with entries corresponding to the average of non-blank ratings of the original matrix. Therefore, all elements of U and M will initially be equal to <img src="https://render.githubusercontent.com/render/math?math=\sqrt{\frac{a}{k}}">
+K , where
+a represents the average non blank rating of M. Then, we perturb these entries with random values drawn from a
+normal distribution with mean 0 and standard deviation 1. Concerning the algorithm, the minimization method is
+based on the stepwise adjustment of the single elements of U or V by their substitution with a variable to optimize.
+The optimization of single positions is based on the derivation of the optimal value of the corresponding variable
+that minimizes the Sum of Squared Errors between the utility matrix M and prediction matrix UV . An optimal
+value for a position is such just at the time when it is modied, however, with an entire traversal of matrices U and
+V , previously optimized values might necessitate re-optimization.
+
 
 
 
