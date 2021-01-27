@@ -9,4 +9,13 @@ For the implementation, we downloaded the MovieLens 1M dataset downloaded at htt
 
 ## The algorithms
 
-The two algorithms we implemented hinge on matrix factorization. Given a sparse matrix $X$ with $u$ users on the rows and $m$ movies on the columns and an arbitrary constant $k$ such that $k << m,u$, the goal of the two implementations is to factorize $X$ to two smaller matrices $U$ and $M$ of size $u \times k$ and $k \times m$ such that the $u \times m$ matrix $P$ resulting from the dot product of $U$ and $M$ well approximates the non-missing entries of $X$. In other words, we seek to lower rank matrices which represent each user and movie 
+The two algorithms we implemented hinge on matrix factorization. Given a sparse matrix X with u users on the rows and m movies on the columns and an arbitrary constant k such that k << m,u, the goal of the two implementations is to factorize X to two smaller matrices U and M of size u x k and k x m such that the u x m matrix P resulting from the dot product of U and M well approximates the non-missing entries of X. In other words, we seek two lower rank matrices which represent each user and movie by vectors of k elements still retaining as much information contained in X as possible. 
+Even though the goal is the same, the proposed algorithms work in divergent ways: the first is a simple line-search whereas the second builds upon a gradient descent optimization.
+
+Sources:
+- UV Matrix Factorization: Chapter 9, MMDS book, http://www.mmds.org/
+- Gradient Descent Factorization: https://www.cs.uic.edu/~liub/KDD-cup-2007/proceedings/gravity-Tikk.pdf
+
+
+
+
