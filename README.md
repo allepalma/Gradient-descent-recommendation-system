@@ -34,5 +34,5 @@ and movie vector in M following the update rules:
 
 <img src="https://render.githubusercontent.com/render/math?math=m_{kj} = m_{kj} + \eta(2e_{ij}u_{ik} - \lambda m_{kj})">
 
-The values of <img src="https://render.githubusercontent.com/render/math?math=\eta"> and img src="https://render.githubusercontent.com/render/math?math=\lambda"> represent respectively the learning rate and the regularization parameter. The learning rate controls the velocity of convergence, downsizing the value of the weight update at
+The values of <img src="https://render.githubusercontent.com/render/math?math=\eta"> and <img src="https://render.githubusercontent.com/render/math?math=\lambda"> represent respectively the learning rate and the regularization parameter. The learning rate controls the velocity of convergence, downsizing the value of the weight update at
 every iteration. On the other hand, the regularization parameter is introduced so to limit the effects of overfitting and boost the accuracy of the prediction on the test set. 
