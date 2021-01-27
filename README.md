@@ -23,6 +23,11 @@ The optimization of single positions is based on the derivation of the optimal v
 one at a time, we simplify the implementation by directly computing the optimal values of these ones (exploiting the formulas of page 346 of the referenced textbook). To sum up, we will cycle across all the values of U and update them. Then, we repeat the same on all values of M . Once both matrices have been optimized, we will compute their dot product, evaluate the RMSE value between X and UV and control if the ending criterion is reached. In case it is, we will exit the main loop and output the
 prediction result.
 
+### Gradient Descent Factorization
+The optimization process exploits the iterative adjustment of the rows of U and columns of M in an optimal way by updating them in the opposite direction of the gradient of a squared error function. The algorithm will cycle across all non-missing elements of our input sparse matrix X and compute the gradient of the squared distance between the element <img src="https://render.githubusercontent.com/render/math?math=X_{ij}"> and element <img src="https://render.githubusercontent.com/render/math?math=P_{ij}"> , where P indicates the dot product of the user matrix U and movie matrix M. Successively, the row i of U and column j of M are updated in the opposite direction of the gradient.
+The process will iterate over each non-missing element of X and compute the RMSE between X and P after every traversal. Ideally, the algorithm should stop upon convergence. However, for the sake of computational feasibility, we limit the number of iterations performed by the algorithm to a pre-defined parameter and analyze the accuracy of the algorithm given them.
+
+
 
 
 
